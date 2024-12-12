@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Customer Details Form</h1>
+        <form id="customerForm" method="POST" onsubmit="return validateForm()">
+            <label for="CustName">Customer Name:</label><br>
+            <input type="text" id="CustName" name="CustName" required pattern="[A-Za-z\s]+" title="Please enter a valid name."><br><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required title="Please enter a valid email address."><br><br>
+
+            <label for="MobNo">Mobile Number:</label><br>
+            <input type="text" id="MobNo" name="MobNo" required pattern="\d{10}" title="Please enter a 10-digit mobile number."><br><br>
+
+            <label for="address">Address:</label><br>
+            <input type="text" id="address" name="address" required title="Please enter your address."><br><br>
+
+            <label for="pincode">Pincode:</label><br>
+            <input type="text" id="pincode" name="pincode" required pattern="\d{6}" title="Please enter a 6-digit pincode."><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <script>
+        function validateForm() {
+            const form = document.getElementById('customerForm');
+            const mobNo = form['MobNo'].value;
+            const pincode = form['pincode'].value;
+            if (mobNo.length !== 10) {
+                alert("Mobile Number must be 10 digits long.");
+                return false;
+            }
+            if (pincode.length !== 6) {
+                alert("Pincode must be 6 digits long.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>ng-click Directive</title>
+!...It is used to request data from the server without full-page refresh..!!
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+	</script>
+</head>
+
+<body ng-app="alert"
+	style="text-align:center">
+	<h1 style="color:pink">
+		Alert Message on button click
+	</h1>
+	<h2>ng-click Directive</h2>
+	<div ng-controller="app">
+		<button>
+			<a href=""
+			ng-click="alert()">
+					Click Here
+			</a>
+		</button>
+	</div>
+	<script>
+		var app = angular.module("alert", []);
+		app.controller('app', ['$scope', function($app) {
+			$app.alert = function() {
+				alert("This is an example of ng-click");
+			}
+		}]);
+	</script>
+</body>
+</html>
+
+<router-outlet></router-outlet>
